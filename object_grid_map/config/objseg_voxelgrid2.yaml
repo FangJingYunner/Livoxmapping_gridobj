@@ -1,0 +1,60 @@
+objseg_gridclass :
+  input_Lidar : "/zvision_lidar_points"
+  camera_input_topic: "/camera/depth/image_rect_raw"
+  # camera_input_topic: "/camera/depth/image_rect_raw"
+  #camera_input_topic: "/camera/aligned_depth_to_color/image_raw"
+
+  GridSize : 0.2    #
+  # LidarHigh : 0.53
+  LidarHigh : 0.5
+  minGridCloudNum : 15 #每个栅格的最小点云数
+  # minGridCloudNum : 40 #每个栅格的最小点云数
+  GridCloudWidth : 401
+
+  elevation_thr : 0.4
+  # elevation_thr : 0.42 # 儿童
+  # elevation_thr : 0.1 # 杆子
+  # elevation_thr : 0.06 # 凹坑
+  uprightness_thr : 0.75
+  min_z_elevation : 0.1
+
+  # ground plane fit param
+  num_lpr : 20
+  th_dist : 0.1
+  num_iter : 5
+  th_seeds : 0.1
+
+  # intrinsic parameter of deep camera
+  DeepCameraHigh: 0.25
+  dfx: 429.1876220703125
+  dfy: 429.1876220703125
+  dcx: 425.7007446289062
+  dcy: 234.9811248779297
+  kScaleFactor: 1000
+  dcamera2lidar_R: [1,0,0,
+                    0,-1,0,
+                    0,0,1]
+  dcamera2lidar_T: [0,0.97,0]
+  DCameraPitch : -0.26
+
+
+  #down sample param
+  DCameraColSampleRate : 6
+  DCameraRowSampleRate: 4
+  # ground_filter_rate : 3
+  ground_filter_rate : 4
+  point_filter_rate : 2
+  ground_height : -0.4
+  outlier_pc : 0.01
+
+  #box filter param
+  lidarXAxis : 1.5
+  lidarYAxis : 4
+  lidarNearbyXAxis : 1
+  lidarNearbyYAxis : 0.5
+  lidarNearbyZAxis : 0.5
+  DCameraXAxis : 2
+  DCameraYAxis : 4
+  DCameraZAxis : 1
+  NoDownSampleThr : 3*3 #大于3m的点不降采样
+  MinCarDis : 0.5 #小于这个值雷达打在车上

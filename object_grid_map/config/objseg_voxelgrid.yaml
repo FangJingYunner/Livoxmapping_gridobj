@@ -1,0 +1,26 @@
+objseg_gridclass:
+  GridCloudWidth: 101
+  GridSize: 0.25
+  LidarHigh: 0.18
+  MinCarDis: 0.2
+  NoDownSampleThr: 3*3
+  elevation_thr: 0.35
+  ground_filter_rate: 2
+  ground_height: -0.4
+  input_Lidar: /velodyne_cloud_registered
+  kScaleFactor: 1000
+#  lidarNearbyXAxis: 1
+#  lidarNearbyYAxis: 0.5
+#  lidarNearbyZAxis: 0.5
+  lidarXAxis: 1
+  lidarYAxis: 2
+  minGridCloudNum: 10
+  min_z_elevation: 0.19
+  num_iter: 3
+  num_lpr: 10
+  outlier_pc: 0.005
+  point_filter_rate: 1
+  th_dist: 0.1
+  th_seeds: 0.1
+  total_score_thr: 1.2
+  uprightness_thr: 0.6

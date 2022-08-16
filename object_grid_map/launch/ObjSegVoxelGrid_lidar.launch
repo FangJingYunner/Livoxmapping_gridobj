@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+  <arg name="rviz" default="true"/>
+
+
+  <rosparam command="load" file="$(find object_grid_map)/config/objseg_voxelgrid.yaml"/>
+
+  <node  name="objseg_gridclass" pkg="object_grid_map" type="objseg_gridclass" output="screen">
+    <param name="AutoStatus" value="false" /> <!-- 是否接收/Usb_Ai topic来决定当前场景 -->
+    <param name="AutoDirection" value="false" /> <!-- 是否根据轮速计来判断当前运动方向，AutoStatus与AutoDirection二选一，或都不选 -->
+    <param name="isslope" value="false" />
+    <param name="UseLidar" value="true" />
+    <param name="UseDCamera" value="false" />
+    <param name="HighGrass" value="false" />
+    <param name="Grass" value="true" />
+    <param name="plane" value="false" />
+  </node>
+
+  <group if = "$(arg rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find object_grid_map)/launch/ObjSeg2.rviz"/>
+  </group>
+
+
+</launch>
